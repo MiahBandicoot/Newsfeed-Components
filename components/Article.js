@@ -86,6 +86,22 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Professional Bending Development in 2019',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -101,12 +117,52 @@ const data = [
     {three separate paragraph elements}
 
     <span class="expandButton">+</span>
-  </div>
+  
+*/            
+const parent = document.querySelector(".articles")   
+function articleMaker(data){
+const div = document.createElement("div");
+const title = document.createElement("h2");
+const date = document.createElement("p");
+const firstParagraph = document.createElement("p");
+const secondParagraph = document.createElement("p");
+const thirdParagraph = document.createElement("p");
+const span = document.createElement("span");
 
+
+div.appendChild(title)
+div.appendChild(date)
+div.appendChild(firstParagraph)
+div.appendChild(secondParagraph)
+div.appendChild(thirdParagraph)
+div.appendChild(span)
+
+div.classList.add("div")
+div.class = "article"
+div.className = "article"
+date.className = "date"
+span.className = "expandButton"
+title.textContent = data.title
+date.textContent = data.date
+firstParagraph.textContent = data.firstParagraph
+secondParagraph.textContent = data.secondParagraph
+thirdParagraph.textContent = data.thirdParagraph
+span.textContent = "+"
+return div
+}
+
+data.forEach(dataObject =>{
+  const info = articleMaker(dataObject)
+  parent.appendChild(info)
+})
+  
+/*
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
+
   Step 3: Don't forget to return something from your function!
+
 
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
   to create a div.article element and append it to the DOM inside div.articles (see index.html).
