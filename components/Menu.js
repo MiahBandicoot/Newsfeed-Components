@@ -18,18 +18,16 @@ function menuMaker(menuItems){
   div.appendChild(ul)
   
   // img.appendChild(button)
-  div.classList.add(".menu")
+  div.classList.add("menu")
   
-
   menuItems.forEach(corona =>{
   const li = document.createElement("li")
   li.textContent = corona
   ul.appendChild(li)
- 
-  button.addEventListener('click', (event) => {
-   div.classList.toggle("menu--open")
-  });
 }) 
+button.addEventListener('click', (event) => {
+  div.classList.toggle("menu--open")
+ });
 return div
  
 }

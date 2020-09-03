@@ -129,19 +129,21 @@ const secondParagraph = document.createElement("p");
 const thirdParagraph = document.createElement("p");
 const span = document.createElement("span");
 
-
 div.appendChild(title)
 div.appendChild(date)
 div.appendChild(firstParagraph)
 div.appendChild(secondParagraph)
 div.appendChild(thirdParagraph)
 div.appendChild(span)
-
 div.classList.add("div")
 div.class = "article"
 div.className = "article"
 date.className = "date"
 span.className = "expandButton"
+span.addEventListener('click', () => {
+  div.classList.toggle('article-open')
+})
+
 title.textContent = data.title
 date.textContent = data.date
 firstParagraph.textContent = data.firstParagraph
